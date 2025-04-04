@@ -7,6 +7,8 @@
 **/*.xccheckout
 **/*.xcscmblueprint
 **/*.xcworkspace
+*.xcworkspace
+xcuserdata/
 
 # Папки временных данных
 DerivedData/
