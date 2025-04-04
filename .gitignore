@@ -1,0 +1,97 @@
+# Xcode
+#
+# .xcuserdata и .xcodeproj — это данные для каждого пользователя
+# Они не должны быть в репозитории.
+#
+**/*.xcuserdatad
+**/*.xccheckout
+**/*.xcscmblueprint
+**/*.xcworkspace
+
+# Папки временных данных
+DerivedData/
+build/
+.idea/
+
+# Прочие Xcode-специфичные файлы
+*.hmap
+*.ipa
+*.dSYM
+*.app
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Swift Package Manager
+/.build/
+
+# Секретные и личные файлы
+*.xcconfig
+*.swp
+.DS_Store
+
+# Логи и файлы настроек
+*.log
+*.swp
+*.swo
+
+# Архивы
+*.zip
+*.tar.gz
+*.dmg
+*.tgz
+
+# Прочее
+.idea/
+*.xcodeproj/project.xcworkspace/# Xcode
+#
+# .xcuserdata и .xcodeproj — это данные для каждого пользователя
+# Они не должны быть в репозитории.
+#
+**/*.xcuserdatad
+**/*.xccheckout
+**/*.xcscmblueprint
+**/*.xcworkspace
+
+# Папки временных данных
+DerivedData/
+build/
+.idea/
+
+# Прочие Xcode-специфичные файлы
+*.hmap
+*.ipa
+*.dSYM
+*.app
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Swift Package Manager
+/.build/
+
+# Секретные и личные файлы
+*.xcconfig
+*.swp
+.DS_Store
+
+# Логи и файлы настроек
+*.log
+*.swp
+*.swo
+
+# Архивы
+*.zip
+*.tar.gz
+*.dmg
+*.tgz
+
+# Прочее
+.idea/
+*.xcodeproj/project.xcworkspace/
