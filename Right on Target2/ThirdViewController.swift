@@ -69,52 +69,49 @@ class ThirdViewController: UIViewController {
     
     // Функция для проверки ответа
     @IBAction func checkAnswer(_ sender: UIButton) {
-        let generator = UIImpactFeedbackGenerator(style: .light)
-        generator.prepare()
-        generator.impactOccurred()
-        // Добавим анимацию нажатия
+        // Анимация кнопки
         UIView.animate(withDuration: 0.1,
                        animations: {
-                           sender.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)  // Уменьшаем кнопку
+                           sender.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
                        },
                        completion: { _ in
                            UIView.animate(withDuration: 0.1) {
-                               sender.transform = CGAffineTransform.identity  // Возвращаем к исходному размеру
+                               sender.transform = CGAffineTransform.identity
                            }
                        })
         
-        // Получаем цвет кнопки
         guard let selectedColor = sender.backgroundColor else {
             print("No background color set for the button")
             return
         }
         
-        // Получаем HEX строку из лейбла
         let secretColorHex = label1.text ?? ""
         
-        // Преобразуем цвет кнопки в HEX строку
         guard let selectedColorHex = selectedColor.toHex() else {
             print("Failed to convert selected color to hex")
             return
         }
         
-        // Сравниваем HEX строки кнопки и лейбла
         if selectedColorHex.lowercased() == secretColorHex.lowercased() {
+            // Вибрация — лёгкая, верный ответ
+            let generator = UIImpactFeedbackGenerator(style: .light)
+            generator.prepare()
+            generator.impactOccurred()
+            
             game.playerGuess(color: selectedColor, text: secretColorHex)
+        } else {
+            // Вибрация — сильная, неверный ответ
+            let generator = UINotificationFeedbackGenerator()
+            generator.prepare()
+            generator.notificationOccurred(.error) 
         }
         
         if game.isGameEnden {
-            // Показываем алерт, когда игра завершена
             showAlertWith(score: game.score)
             game.restartGame()
         } else {
-            // Начинаем новый раунд
             game.startNewRound()
-            
-            // Обновляем лейбл с новым секретным цветом
             updateLabelWithSecretColor(newText: game.currentRound.currentSecretColor.toHex() ?? "")
-            
-            // Генерируем новые цвета для кнопок
             assignColorsToButtons(secretColor: game.currentRound.currentSecretColor)
         }
     }
