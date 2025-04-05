@@ -69,6 +69,9 @@ class ThirdViewController: UIViewController {
     
     // Функция для проверки ответа
     @IBAction func checkAnswer(_ sender: UIButton) {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
+        generator.impactOccurred()
         // Добавим анимацию нажатия
         UIView.animate(withDuration: 0.1,
                        animations: {
